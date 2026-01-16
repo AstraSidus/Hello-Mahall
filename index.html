@@ -1,0 +1,346 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> My Magandang Tampuhin💕</title>
+    <!-- NEW: Google Fonts import for elegant typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            /* MODIFIED: Changed font to Lora for elegant readability */
+            font-family: 'Lora', Georgia, serif;
+            background: linear-gradient(180deg, #0a1128 0%, #1a0b2e 50%, #000000 100%);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            position: relative;
+            min-height: 100vh;
+            /* NEW: Improved line-height for better readability */
+            line-height: 1.7;
+        }
+
+        /* NEW: Moon background element */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 10%;
+            right: 15%;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, #ffffff 0%, #f0f0f0 40%, transparent 70%);
+            border-radius: 50%;
+            box-shadow: 0 0 60px 30px rgba(255, 255, 255, 0.3),
+                        0 0 100px 50px rgba(255, 255, 255, 0.15);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* NEW: Static background stars */
+        body::after {
+            content: '✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.3);
+            word-spacing: 80px;
+            line-height: 100px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* NEW: Falling stars container */
+        .falling-stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* NEW: Individual falling star */
+        .star {
+            position: absolute;
+            color: #fff;
+            animation: fall linear infinite;
+            opacity: 0;
+        }
+
+        /* NEW: Falling animation */
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        h1 {
+            /* MODIFIED: Changed to Playfair Display for elegant decorative heading */
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 3em;
+            font-weight: 700;
+            color: #ff6f61;
+            text-align: center;
+            margin-top: 20px;
+            animation: fadeIn 2s;
+            position: relative;
+            z-index: 10;
+            letter-spacing: 1px;
+        }
+        h2 {
+            /* MODIFIED: Changed to Playfair Display for elegant decorative heading */
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #b8a4e8;
+            text-align: center;
+            margin-top: 10px;
+            animation: fadeIn 2s;
+            position: relative;
+            z-index: 10;
+            letter-spacing: 0.5px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .love-letter {
+            max-width: 600px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeIn 3s forwards;
+            position: relative;
+            z-index: 10;
+            /* NEW: Increased font size and line-height for readability */
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        .memories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+        .memory-card {
+            /* MODIFIED: Changed background to moon-inspired gray gradient */
+            background: linear-gradient(135deg, #e8e8e8 0%, #c0c0c0 50%, #a8a8a8 100%);
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 10px;
+            transition: transform 0.3s;
+        }
+        .memory-card:hover {
+            transform: scale(1.05);
+        }
+        .memory-card p {
+            /* MODIFIED: Added font styling for card text */
+            font-family: 'Lora', Georgia, serif;
+            font-size: 1em;
+            font-weight: 500;
+            color: #2c2c2c;
+            margin-top: 10px;
+        }
+        .heart-icon {
+            color: #ff69b4;
+            margin-right: 5px;
+        }
+        .interactive-button {
+            /* MODIFIED: Changed font to match elegant theme */
+            font-family: 'Playfair Display', Georgia, serif;
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            position: relative;
+            z-index: 10;
+            letter-spacing: 0.5px;
+        }
+        .interactive-button:hover {
+            background-color: #e55d50;
+        }
+        .hidden-message {
+            /* MODIFIED: Changed font and increased size */
+            font-family: 'Playfair Display', Georgia, serif;
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #b8a4e8;
+            position: relative;
+            z-index: 10;
+        }
+        .final-message {
+            /* MODIFIED: Changed font for consistency */
+            font-family: 'Playfair Display', Georgia, serif;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: 600;
+            margin: 40px 0;
+            color: #ff6f61;
+            position: relative;
+            z-index: 10;
+            letter-spacing: 0.5px;
+        }
+        ul {
+            position: relative;
+            z-index: 10;
+            max-width: 600px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        ul li {
+            /* MODIFIED: Improved font styling for list items */
+            font-family: 'Lora', Georgia, serif;
+            margin: 10px 0;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        /* Responsive styles */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 1.2em; }
+            .memory-card { padding: 5px; }
+            body::before {
+                width: 100px;
+                height: 100px;
+                top: 5%;
+                right: 10%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NEW: Falling stars container -->
+    <div class="falling-stars" id="starsContainer"></div>
+
+    <h1>For My Favorite Person 💕</h1>
+    <h2>You make my heart smile</h2>
+
+    <div class="love-letter">
+        <p>Dear [Mahal Kong Gab na magandang Tampuhin],<br>
+       Wag na tampo huhu lovee you pooo mwaaaa , [Ervine] 🌹</p>
+    </div>
+
+    <h2>Memories Together</h2>
+<div class="memories">
+    <div class="memory-card">
+        <img src="https://media.discordapp.net/attachments/1279312419268595774/1279318247522435165/image.png?ex=696b23f6&is=6969d276&hm=2325cc53ff8dab5dbd7cbc03b5ea41cae7bce9c7474c539aeea684790745d320&=&format=webp&quality=lossless&width=611&height=613" alt="Our First Project Together" style="width: 100%; border-radius: 10px;">
+        <p>Our First Project Together</p>
+    </div>
+    <div class="memory-card">
+        <img src="https://media.discordapp.net/attachments/1279312419268595775/1373133142696788159/image.png?ex=696afb64&is=6969a9e4&hm=83c76e7f09cd466441a266f943a4712fb9a913c5c56900ff179e9fc67921f023&=&format=webp&quality=lossless&width=1117&height=1159" alt="Late Night Roblox" style="width: 100%; border-radius: 10px;">
+        <p>Late night roblox</p>
+    </div>
+    <div class="memory-card">
+        <img src="https://media.discordapp.net/attachments/1279312419268595774/1296725344669143091/706F5B0D-E639-4D67-A54A-38BF0B80DBE7.jpg?ex=696b2f96&is=6969de16&hm=eb537a971dad2b7177fa6b07b4dcf7a77326c4bac4af836d15c2df4ba97f1b98&=&format=webp&width=868&height=1157" alt="My Favorite Pic" style="width: 100%; border-radius: 10px;">
+        <p>My Favorite Pic </p>
+    </div>
+    <div class="memory-card">
+        <img src="https://media.discordapp.net/attachments/1081192623596908574/1461620963979563218/image.jpg?ex=696b3819&is=6969e699&hm=11c8f38c7ff3b22d54677944dafc2b5c294479c73d70c14f4b27ef9f7c0d0db6&=&format=webp&width=732&height=977" alt="Our Silly Moments" style="width: 100%; border-radius: 10px;">
+        <p>Our Adventures to EK</p>
+    </div>
+</div>
+
+
+    <h2>Why I Love You</h2>
+    <ul>
+        <li><span class="heart-icon">❤️</span>Your kindness</li>
+        <li><span class="heart-icon">❤️</span>Your smile</li>
+        <li><span class="heart-icon">❤️</span>Your adventurous spirit</li>
+        <li><span class="heart-icon">❤️</span>Your intelligence</li>
+        <li><span class="heart-icon">❤️</span>Your love for life</li>
+    </ul>
+
+    <button class="interactive-button" onclick="showMessage()">Click me 💖</button>
+    <div class="hidden-message" id="hiddenMessage">
+        <p>You are my everything! 💖</p>
+    </div>
+
+    <div class="final-message">
+        <p>Kakayanin at lalaban anong mangyari</p>
+    </div>
+
+    <script>
+        function showMessage() {
+            const message = document.getElementById('hiddenMessage');
+            message.style.display = 'block';
+        }
+
+        // NEW: Create falling stars animation
+        function createFallingStars() {
+            const container = document.getElementById('starsContainer');
+            const starSymbols = ['✨', '★', '⭐'];
+            const numberOfStars = 20;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random star symbol
+                star.textContent = starSymbols[Math.floor(Math.random() * starSymbols.length)];
+                
+                // Random size (0.5em to 1.5em)
+                const size = 0.5 + Math.random() * 1;
+                star.style.fontSize = size + 'em';
+                
+                // Random horizontal position
+                star.style.left = Math.random() * 100 + '%';
+                
+                // Random animation duration (8s to 15s for slow fall)
+                const duration = 8 + Math.random() * 7;
+                star.style.animationDuration = duration + 's';
+                
+                // Random delay to stagger stars
+                star.style.animationDelay = Math.random() * 5 + 's';
+                
+                // Random opacity (0.4 to 0.9 for dreamy effect)
+                const maxOpacity = 0.4 + Math.random() * 0.5;
+                star.style.setProperty('--max-opacity', maxOpacity);
+                
+                container.appendChild(star);
+            }
+        }
+
+        // Initialize falling stars when page loads
+        createFallingStars();
+    </script>
+</body>
+</html>
+```
